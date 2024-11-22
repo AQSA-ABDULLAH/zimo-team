@@ -1,16 +1,16 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 export default function Form2({ onContinue }) {
   // Validation schema using Yup
   const validationSchema = Yup.object({
-    cnic: Yup.string().required('National ID number is required.'),
-    addressOne: Yup.string().required('Address 1 is required.'),
-    addressTwo: Yup.string().required('Address 2 is required.'),
-    city: Yup.string().required('City is required.'),
-    stateRegion: Yup.string().required('State or Region is required.'),
-    zipcode: Yup.string().required('Zip code is required.'),
+    cnic: Yup.string().required(),
+    addressOne: Yup.string().required(),
+    addressTwo: Yup.string().required(),
+    city: Yup.string().required(),
+    stateRegion: Yup.string().required(),
+    zipcode: Yup.string().required(),
   });
 
   return (
@@ -43,60 +43,91 @@ export default function Form2({ onContinue }) {
                 <div className="py-1"></div>
               </div>
 
-              <Field
-                type="text"
-                name="cnic"
-                placeholder="NATIONAL ID NUMBER (CNIC)"
-                className="w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none"
-              />
-              <ErrorMessage name="cnic" component="div" className="text-red-500 text-sm" />
+              <Field name="cnic">
+                {({ field, meta }) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="NATIONAL ID NUMBER (CNIC)"
+                    className={`w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none ${
+                      meta.touched && meta.error ? 'border-red-500' : ''
+                    }`}
+                  />
+                )}
+              </Field>
 
-              <Field
-                type="text"
-                name="addressOne"
-                placeholder="ADDRESS 1"
-                className="w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none"
-              />
-              <ErrorMessage name="addressOne" component="div" className="text-red-500 text-sm" />
+              <Field name="addressOne">
+                {({ field, meta }) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="ADDRESS 1"
+                    className={`w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none ${
+                      meta.touched && meta.error ? 'border-red-500' : ''
+                    }`}
+                  />
+                )}
+              </Field>
 
-              <Field
-                type="text"
-                name="addressTwo"
-                placeholder="ADDRESS 2 (APARTMENT, SUITE, ETC.)"
-                className="w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none"
-              />
-              <ErrorMessage name="addressTwo" component="div" className="text-red-500 text-sm" />
+              <Field name="addressTwo">
+                {({ field, meta }) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="ADDRESS 2 (APARTMENT, SUITE, ETC.)"
+                    className={`w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none ${
+                      meta.touched && meta.error ? 'border-red-500' : ''
+                    }`}
+                  />
+                )}
+              </Field>
 
-              <Field
-                type="text"
-                name="city"
-                placeholder="CITY"
-                className="w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none"
-              />
-              <ErrorMessage name="city" component="div" className="text-red-500 text-sm" />
+              <Field name="city">
+                {({ field, meta }) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="CITY"
+                    className={`w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none ${
+                      meta.touched && meta.error ? 'border-red-500' : ''
+                    }`}
+                  />
+                )}
+              </Field>
 
-              <Field
-                type="text"
-                name="stateRegion"
-                placeholder="STATE / REGION"
-                className="w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none"
-              />
-              <ErrorMessage name="stateRegion" component="div" className="text-red-500 text-sm" />
+              <Field name="stateRegion">
+                {({ field, meta }) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="STATE / REGION"
+                    className={`w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none ${
+                      meta.touched && meta.error ? 'border-red-500' : ''
+                    }`}
+                  />
+                )}
+              </Field>
 
-              <Field
-                type="text"
-                name="zipcode"
-                placeholder="ZIP CODE / POST CODE"
-                className="w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none"
-              />
-              <ErrorMessage name="zipcode" component="div" className="text-red-500 text-sm" />
+              <Field name="zipcode">
+                {({ field, meta }) => (
+                  <input
+                    {...field}
+                    type="text"
+                    placeholder="ZIP CODE / POST CODE"
+                    className={`w-[90%] max-w-[580px] text-center bg-transparent border border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] outline-none ${
+                      meta.touched && meta.error ? 'border-red-500' : ''
+                    }`}
+                  />
+                )}
+              </Field>
+
               <div className="flex justify-around w-full pt-10">
-              <button
-                type="submit"
-                className="lg:flex items-center justify-center hidden h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] rounded-lg text-center uppercase"
-              >
-                CONTINUE
-              </button>
+                <button
+                  type="submit"
+                  className="lg:flex items-center justify-center hidden h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] rounded-lg text-center uppercase"
+                >
+                  CONTINUE
+                </button>
               </div>
             </Form>
           )}
@@ -105,3 +136,4 @@ export default function Form2({ onContinue }) {
     </section>
   );
 }
+

@@ -7,21 +7,21 @@ export default function Form1({ onContinue }) {
     const validationSchema = Yup.object({
         email: Yup.string()
             .email('Invalid email address')
-            .required('Email is required'),
+            .required(),
         confirmEmail: Yup.string()
             .oneOf([Yup.ref('email'), null], 'Emails must match')
-            .required('Confirm email is required'),
-        firstName: Yup.string().required('First name is required'),
-        lastName: Yup.string().required('Last name is required'),
+            .required(),
+        firstName: Yup.string().required(),
+        lastName: Yup.string().required(),
         dob: Yup.date()
             .max(new Date(), 'Date of birth cannot be in the future')
-            .required('Date of birth is required'),
+            .required(),
         phone: Yup.string()
             .matches(
                 /^[0-9]{10}$/,
                 'Phone number must be 10 digits and contain only numbers'
             )
-            .required('Phone number is required'),
+            .required(),
         zarCode: Yup.string().notRequired(), // Optional field, no validation needed
     });
 
@@ -142,8 +142,8 @@ export default function Form1({ onContinue }) {
 
 
                             <p className="text-black font-normal text-[18px] w-[90%] max-w-[580px] outline-none bg-transparent 
-        border placeholder:text-center text-center border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] 
-        uppercase">
+                                    border placeholder:text-center text-center border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] 
+                                    uppercase">
                                 Brazil
                             </p>
 
@@ -173,9 +173,8 @@ export default function Form1({ onContinue }) {
                                 <button
                                     type="submit"
                                     className="h-[120px] w-[120px] bg-black text-white tracking-widest 
-    text-[14px] absolute rounded-lg flex items-center 
-    justify-center uppercase"
-                                    style={{ bottom: 0, right: -200 }}
+                                        text-[14px] absolute rounded-lg flex items-center 
+                                        justify-center uppercase" style={{ bottom: 0, right: -200 }}
                                 >
                                     CONTINUE
                                 </button>
