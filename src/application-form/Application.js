@@ -17,27 +17,28 @@ export default function Application() {
 
     return (
         <section>
-            <header className="uppercase lg:px-2 grid grid-cols-3 lg:grid-cols-3 my-8 lg:my-8 mb-16 tracking-widest text-[20px] lg:text-[16px] mx-8 mr-24">
-                <div>
-                    <h2>APPLY</h2>
-                    <button className="flex flex-1 mt-2 sm:absolute left-0 sm:px-2 cursor-pointer items-center gap-2 mx-8
-                        uppercase tracking-widest text-[20px] lg:text-[16px]">
+            <header className="flex justify-between items-center w-[450] px-8 pt-8">
+                <div className="flex flex-col gap-2 flex-start"> {/* Keep APPLY section in a corner */}
+                    <h2 className="pr-8">APPLY</h2>
+                    <button className="flex items-center gap-2 uppercase tracking-widest text-[20px] lg:text-[16px]">
                         <img src="/images/arrow.png" alt="keyback" className="w-[18px]" />
-                        <span>Back</span>
+                        <span>BACk</span>
                     </button>
                 </div>
 
-                <section className="flex flex-col text-center items-center lg:items-end sm:text-[14px] md:text-[28px] sm:text-end md:text-end ">
-                    <h1>YOUR APPLICATION</h1>
-                    <div className="flex items-center justify-end gap-x-5 mt-7 mr-16">
-                        <div className="bg-[#BE9f56] h-[2px] w-[80px] lg:w-[46px]"></div>
-                        <div className="bg-black h-[2px] w-[60px] lg:w-[46px]"></div>
-                        <div className="bg-black h-[2px] w-[60px] lg:w-[46px]"></div>
+                <section className="flex flex-col text-center items-center">
+                    <h1 className="text-2xl">YOUR APPLICATION</h1>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginTop: "1.75rem" }}>
+                        <div style={{ backgroundColor: "yellow", height: "2px", width: "60px" }}></div>
+                        <div style={{ backgroundColor: "black", height: "2px", width: "60px" }}></div>
+                        <div style={{ backgroundColor: "black", height: "2px", width: "60px" }}></div>
                     </div>
                 </section>
-
-                <div></div>
+                <div>
+                    .
+                </div>
             </header>
+
 
             {/* Conditional rendering based on current form state */}
             {currentForm === 1 && <Form1 onContinue={handleContinue} />}
@@ -45,16 +46,15 @@ export default function Application() {
             {currentForm === 3 && <Form3 onContinue={handleContinue} />}
             {currentForm === 4 && <Statement onCancel={handleCancel} />}
 
-            <footer className="flex justify-between items-end px-8 md:pt-20 pb-8 mt-4 pr-[55px] 2xl:pr-8">
+            <footer className="flex justify-between px-8 md:pt-20 pb-8 mt-4 pr-[55px] 2xl:pr-8">
                 <div className="flex-1">
-                    <img src="/images/app-team.png" alt="zimo-team-logo" className="w-[318px] 3xl:w-[300px]" />
+                    <img src="/images/app-team.png" alt="zimo-team-logo" className="w-[318px] 3xl:w-[300px]" /> {/* Self-closing */}
                 </div>
 
-                <div className="flex-1">
-                    <img src="/images/internship.png" alt="zimo-intern-logo" className="w-[147px] 3xl:w-[90px] ml-auto" />
+                <div className="">
+                    <img src="/images/internship.png" alt="zimo-intern-logo" className="w-[147px] 3xl:w-[90px] ml-auto" /> {/* Self-closing */}
                 </div>
             </footer>
         </section>
     );
 }
-
