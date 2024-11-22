@@ -182,15 +182,13 @@ export default function Form1({ onContinue }) {
 
                             </div>
 
-
-
                             <Field
                                 type="text"
                                 name="zarCode"
                                 placeholder="ZAR CODE (OPTIONAL)"
                                 className="tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
-          placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
-          border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
+                                    placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
+                                    border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
                             />
 
                         </Form>
