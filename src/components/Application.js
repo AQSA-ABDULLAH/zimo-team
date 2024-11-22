@@ -2,7 +2,6 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-
 export default function ApplicationForm({ countries, roles, onApplyClick }) {
     const [showCountry, setShowCountry] = useState(true);
 
@@ -49,7 +48,7 @@ export default function ApplicationForm({ countries, roles, onApplyClick }) {
                             }
                         }}
                     >
-                        {({ handleSubmit }) => (
+                        {({ handleSubmit, errors, touched }) => (
                             <Form className="w-full text-center space-y-6" onSubmit={handleSubmit}>
                                 {showCountry ? (
                                     <div className="first">
@@ -57,7 +56,7 @@ export default function ApplicationForm({ countries, roles, onApplyClick }) {
                                         <Field 
                                             as="select"
                                             name="country"
-                                            className="w-[480px] uppercase p-3 rounded-xl tracking-widest text-center leading-tight focus:outline-none focus:border-[#BE9f56] border-2 text-[16px] md:text-[16px] cursor-pointer"
+                                            className={`w-[480px] uppercase p-3 rounded-xl tracking-widest text-center leading-tight focus:outline-none focus:border-[#BE9f56] border-2 text-[16px] md:text-[16px] cursor-pointer ${errors.country && touched.country ? 'border-red-500' : ''}`}
                                         >
                                             <option className="text-center" value="">SELECT YOUR COUNTRY</option>
                                             {countries.map((country) => (
@@ -66,11 +65,6 @@ export default function ApplicationForm({ countries, roles, onApplyClick }) {
                                                 </option>
                                             ))}
                                         </Field>
-                                        <ErrorMessage
-                                            name="country"
-                                            component="div"
-                                            className="text-red-500 text-sm mt-2"
-                                        />
 
                                         {/* Start Button */}
                                         <button 
@@ -87,7 +81,7 @@ export default function ApplicationForm({ countries, roles, onApplyClick }) {
                                         <Field 
                                             as="select"
                                             name="role"
-                                            className="w-[480px] uppercase p-3 rounded-xl tracking-widest text-center leading-tight focus:outline-none focus:border-[#BE9f56] border-2 text-[16px] md:text-[16px] cursor-pointer"
+                                            className={`w-[480px] uppercase p-3 rounded-xl tracking-widest text-center leading-tight focus:outline-none focus:border-[#BE9f56] border-2 text-[16px] md:text-[16px] cursor-pointer ${errors.role && touched.role ? 'border-red-500' : ''}`}
                                         >
                                             <option className="text-center" value="">SELECT YOUR ROLE</option>
                                             {roles.map((role) => (
@@ -96,11 +90,6 @@ export default function ApplicationForm({ countries, roles, onApplyClick }) {
                                                 </option>
                                             ))}
                                         </Field>
-                                        <ErrorMessage
-                                            name="role"
-                                            component="div"
-                                            className="text-red-500 text-sm mt-2"
-                                        />
                                       
                                         {/* Apply Button */}
                                         <button 
@@ -119,3 +108,4 @@ export default function ApplicationForm({ countries, roles, onApplyClick }) {
         </div>
     );
 }
+
