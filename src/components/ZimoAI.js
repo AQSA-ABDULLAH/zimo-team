@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Section4() {
+export default function ZimoAI() {
     return (
         <section>
             <div className="flex flex-col items-center justify-center min-h-screen bg-white text-center text-black p-8 gap-4 font-semibold text-lg relative">

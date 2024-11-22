@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-export default function Section6() {
+export default function ZimoMeet() {
     const [isHovered, setIsHovered] = useState(false);
     const [isInView, setIsInView] = useState(false);
   return (

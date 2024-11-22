@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Section5() {
+export default function ZimoGroup() {
   return (
     <section className="w-full min-h-screen flex items-center justify-center relative">
     <div className="absolute inset-0 w-full h-full overflow-hidden">

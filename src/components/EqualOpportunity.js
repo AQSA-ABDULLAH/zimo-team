@@ -1,4 +1,4 @@
-export default function Section12() {
+export default function EqualOpportunity() {
     return (
         <section className="flex flex-col items-center justify-center min-h-screen bg-black text-center text-white px-8">
             {/* Logo */}
@@ -33,4 +33,3 @@ export default function Section12() {
         </section>
     );
 }
-

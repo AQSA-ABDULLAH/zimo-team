@@ -1,21 +1,21 @@
 "use client";
 import { useState } from "react";
-import Application from "./components/ApplicationForm/Application";
-import Header from "./components/Header";
-import Section1 from "./components/Section1";
-import Section10 from "./components/Section10";
-import Section11 from "./components/Section11";
-import Section12 from "./components/Section12";
-import Section13 from "./components/Section13";
-import Section14 from "./components/Section14";
-import Section2 from "./components/Section2";
-import Section3 from "./components/Section3";
-import Section4 from "./components/Section4";
-import Section5 from "./components/Section5";
-import Section6 from "./components/Section6";
-import Section7 from "./components/Section7";
-import Section8 from "./components/Section8";
-import Section9 from "./components/Section9";
+import Application from "./application-form/ApplicationForm/Application";
+import Header from "../components/Header";
+import Hero from "@/components/Hero";
+import IntroVideo from "@/components/IntroVideo";
+import DiscoverNew from "@/components/DiscoverNew";
+import ZimoAI from "@/components/ZimoAI";
+import ZimoGroup from "@/components/ZimoGroup";
+import ZimoMeet from "@/components/ZimoMeet";
+import StudioVideo from "@/components/StudioVideo";
+import ZimoDoc from "@/components/ZimoDoc";
+import ZimoCareer from "@/components/ZimoCareer";
+import ZimoInternship from "@/components/ZimoInternship";
+import DreamVideo from "@/components/DreamVideo";
+import EqualOpportunity from "@/components/EqualOpportunity";
+import ApplicationForm from "@/components/Application";
+import Footer from "@/components/Footer";
 
 const countries = [
   "United Kingdom", "United States", "Pakistan", "India", "Algeria", "Angola",
@@ -42,20 +42,20 @@ export default function Home() {
       {!showApplication ? (
         <>
           <Header />
-          <Section1 />
-          <Section2 />
-          <Section3 />
-          <Section4 />
-          <Section5 />
-          <Section6 />
-          <Section7 />
-          <Section8 />
-          <Section9 />
-          <Section10 />
-          <Section11 />
-          <Section12 />
-          <Section13 countries={countries} roles={roles} onApplyClick={handleApplyClick} />
-          <Section14 />
+          <Hero />
+          <IntroVideo />
+          <DiscoverNew />
+          <ZimoAI />
+          <ZimoGroup />
+          <ZimoMeet />
+          <StudioVideo />
+          <ZimoDoc />
+          <ZimoCareer />
+          <ZimoInternship />
+          <DreamVideo />
+          <EqualOpportunity />
+          <ApplicationForm countries={countries} roles={roles} onApplyClick={handleApplyClick} />
+          <Footer />
         </>
       ) : (
         <Application />

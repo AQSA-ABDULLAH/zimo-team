@@ -1,6 +1,6 @@
 // components/Section1.js
 
-export default function Section1() {
+export default function Hero() {
     return (
         <section>
             <div className="my-32 mx-10">
@@ -92,61 +92,3 @@ export default function Section1() {
         </section>
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* //   <div className="flex justify-between my-auto px-6 pt-28 sm:p-0 mt-20">
-      
-//         <div className="flex flex-col justify-center items-start sm:items-center my-auto gap-y-[50px] lg:gap-y-[20px]" style={{ opacity: 1, transform: 'none' }}>
-//           <div className="MuiBox-root css-14o3vq">
-//             <img src="./images/zimoteam2.png" alt="ZT Logo" className="w-full" />
-//           </div>
-//           <div className="MuiBox-root css-1x461va">
-//             <img src="/assets/zg+zig.svg" alt="Zigzag" className="w-full" />
-//           </div>
-//         </div>
-        
-   
-//         <div className="flex flex-col gap-y-[7px] mb-2">
-//           <div className="lg:hidden relative inline-block overflow-hidden rounded-t-[35px]">
-        
-//             <button className="absolute right-8 top-7 z-[10]">
-//               <div className="MuiBox-root css-c4x0r5">
-//                 <img src="/assets/MuteVolume.svg" className="w-[18px] 2xl:w-[15px] transition-all duration-150 hover:scale-105" alt="Mute and Unmute icon" />
-//               </div>
-//             </button>
-        
-//             <div className="MuiBox-root css-ppbw9k">
-//               <video className="object-cover w-full h-full" autoPlay src="https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/advertVideos%2FZG%20-%20The%20new%20MacBook%20Pro%20Apple.mp4?alt=media&amp;token=b0f965f2-1ebd-4043-a11f-2c0cdf1a1dc3" disablePictureInPicture type="video/mp4"></video>
-//             </div>
-   
-//             <button className="absolute bottom-8 right-7 z-10">
-//               <div className="MuiBox-root css-c4x0r5">
-//                 <img src="/assets/ExpandScreen.svg" className="transition-all duration-150 hover:scale-105 invert" alt="Expand icon" />
-//               </div>
-//             </button>
-//           </div>
-  
-
-//           <section className="flex items-center justify-center lg:hidden">
-//             <div className="MuiBox-root css-ppbw9k">
-//               <div className="flex w-full h-full flex-row items-stretch overflow-hidden rounded-b-[35px]">
-             
-//                 <div className="relative w-[116px] cursor-pointer bg-cover bg-center transition-all duration-500 ease-in-out flex-grow" style={{ backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/thumbnailVideo300%2FZG%20-%20S24%20Ultra%20Galaxy%20AI%20How%20to%20Is%20Here%20Samsung%20UK.png?alt=media&amp;token=eeb8eff4-7de7-4874-82d1-2870074f17ba)' }}></div>
-//                 <div className="relative w-[116px] cursor-pointer bg-cover bg-center transition-all duration-500 ease-in-out flex-grow" style={{ backgroundImage: 'url(https://firebasestorage.googleapis.com/v0/b/ztfr-ff6ab.appspot.com/o/thumbnailVideo300%2FZG%20-%20Introducing%20Copilot%20in%20Windows%2011%20300.png?alt=media&amp;token=18b39f9b-5903-43c5-8a19-7400d27338c6)' }}></div>
-             
-//               </div>
-//             </div>
-//           </section>
-//         </div>
-//       </div> */}

@@ -1,4 +1,4 @@
-export default function Section10() {
+export default function ZimoInternship() {
 
     return (
         <section className='relative h-[600px] flex justify-center items-center'>
@@ -36,6 +36,3 @@ export default function Section10() {
         </section>
     );
 }
-
-
-

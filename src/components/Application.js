@@ -1,9 +1,9 @@
-"use client";
 import { useState } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
-export default function Section13({ countries, roles, onApplyClick }) {
+
+export default function ApplicationForm({ countries, roles, onApplyClick }) {
     const [showCountry, setShowCountry] = useState(true);
 
     // Validation schema for Formik using Yup
@@ -16,7 +16,20 @@ export default function Section13({ countries, roles, onApplyClick }) {
           });
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-white px-4 py-8">
+        <div className="flex flex-col min-h-screen bg-white px-4 py-8">
+            <h1 className="px-4 text-[20px] ">APPLY</h1>
+            
+            {/* Show BACK button only when user is selecting a role */}
+            {!showCountry && (
+                <div 
+                    className="px-2 py-1 flex cursor-pointer"
+                    onClick={() => setShowCountry(true)}  // Set showCountry to true to go back to country selection
+                >
+                    <img src="/images/arrow.png" className="w-[36px]" />
+                    <h1 className="text-[20px] ">BACK</h1>
+                </div>
+            )}
+
             <div className="flex items-center justify-center sm:py-16 z-10">
                 <div className="border border-[#BE9F56] flex flex-col justify-around items-center relative p-10 
                     w-[800px] h-[430px] space-y-12 rounded-xl mx-auto">
@@ -69,6 +82,7 @@ export default function Section13({ countries, roles, onApplyClick }) {
                                     </div>
                                 ) : (
                                     <div className="second">
+                                        
                                         {/* Roles Select Dropdown */}
                                         <Field 
                                             as="select"
@@ -87,7 +101,7 @@ export default function Section13({ countries, roles, onApplyClick }) {
                                             component="div"
                                             className="text-red-500 text-sm mt-2"
                                         />
-                                        
+                                      
                                         {/* Apply Button */}
                                         <button 
                                             type="submit"
@@ -105,4 +119,3 @@ export default function Section13({ countries, roles, onApplyClick }) {
         </div>
     );
 }
-

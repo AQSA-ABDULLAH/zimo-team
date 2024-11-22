@@ -1,4 +1,4 @@
-export default function Section11() {
+export default function DreamVideo() {
     return (
         <section>
             <video

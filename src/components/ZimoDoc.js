@@ -1,4 +1,4 @@
-export default function Section8() {
+export default function ZimoDoc() {
     return (
         <section id="zdoc" className="section container mx-auto min-h-screen flex flex-col justify-between py-16">
             {/* ZIDOC Logo */}

@@ -1,4 +1,4 @@
-export default function Section7() {
+export default function StudioVideo() {
     return (
         <section>
             <video
