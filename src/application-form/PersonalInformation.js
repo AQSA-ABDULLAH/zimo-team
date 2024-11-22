@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import React from 'react';
+import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
 export default function Form1({ onContinue }) {
@@ -52,56 +52,94 @@ export default function Form1({ onContinue }) {
                             autoComplete="off"
                             className="relative flex flex-col flex-1 items-center space-y-2 text-[18px] lg:text-[16px]"
                         >
-                            <Field
-                                type="email"
-                                name="email"
-                                placeholder="EMAIL ADDRESS"
-                                className="tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
-          placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
-          border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
-                            />
-                            <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+                            <Field name="email">
+                                {({ field, meta }) => (
+                                    <input
+                                        {...field}
+                                        type="email"
+                                        placeholder="EMAIL ADDRESS"
+                                        className={`tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
+                                            placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
+                                            border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none 
+                                            ${meta.touched && meta.error
+                                                ? 'border-red-500'
+                                                : ''
+                                            }`}
+                                    />
+                                )}
+                            </Field>
 
-                            <Field
-                                type="email"
-                                name="confirmEmail"
-                                placeholder="CONFIRM EMAIL ADDRESS"
-                                className="tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
-          placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
-          border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
-                            />
-                            <ErrorMessage name="confirmEmail" component="div" className="text-red-500 text-sm" />
+                            <Field name="confirmEmail">
+                                {({ field, meta }) => (
+                                    <input
+                                        {...field}
+                                        type="email"
+                                        placeholder="CONFIRM EMAIL ADDRESS"
+                                        className={`tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
+                                            placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
+                                            border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none 
+                                            ${meta.touched && meta.error
+                                                ? 'border-red-500'
+                                                : ''
+                                            }`}
+                                    />
+                                )}
+                            </Field>
 
-                            <Field
-                                type="text"
-                                name="firstName"
-                                placeholder="FIRST NAME"
-                                className="tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
-          placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
-          border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
-                            />
-                            <ErrorMessage name="firstName" component="div" className="text-red-500 text-sm" />
 
-                            <Field
-                                type="text"
-                                name="lastName"
-                                placeholder="LAST NAME (INCLUDING MIDDLE NAME)"
-                                className="tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
-          placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
-          border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
-                            />
-                            <ErrorMessage name="lastName" component="div" className="text-red-500 text-sm" />
+                            <Field name="firstName">
+                                {({ field, meta }) => (
+                                    <input
+                                        {...field}
+                                        type="text"
+                                        placeholder="FIRST NAME"
+                                        className={`tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
+                                            placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
+                                            border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none 
+                                            ${meta.touched && meta.error
+                                                ? 'border-red-500'
+                                                : ''
+                                            }`}
+                                    />
+                                )}
+                            </Field>
 
-                            <Field
-                                type="date"
-                                name="dob"
-                                max="2050-12-25"
-                                placeholder="DD/MM/YYYY"
-                                className="tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
-          placeholder:text-[28px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
-          border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
-                            />
-                            <ErrorMessage name="dob" component="div" className="text-red-500 text-sm" />
+                            <Field name="lastName">
+                                {({ field, meta }) => (
+                                    <input
+                                        {...field}
+                                        type="text"
+                                        placeholder="LAST NAME (INCLUDING MIDDLE NAME)"
+                                        className={`tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
+                                            placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
+                                            border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none 
+                                            ${meta.touched && meta.error
+                                                ? 'border-red-500'
+                                                : ''
+                                            }`}
+                                    />
+                                )}
+                            </Field>
+
+                            <Field name="dob">
+                                {({ field, meta }) => (
+                                    <input
+                                        {...field}
+                                        type="date"
+                                        max="2050-12-25"
+                                        placeholder="DD/MM/YYYY"
+                                        className={`tracking-[2px] md:tracking-[0px] w-[90%] placeholder:text-black placeholder:font-normal 
+                                            placeholder:text-[28px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
+                                            border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none 
+                                            ${meta.touched && meta.error
+                                                ? 'border-red-500'
+                                                : ''
+                                            }`}
+                                    />
+                                )}
+                            </Field>
+
+
 
                             <p className="text-black font-normal text-[18px] w-[90%] max-w-[580px] outline-none bg-transparent 
         border placeholder:text-center text-center border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] 
@@ -116,28 +154,36 @@ export default function Form1({ onContinue }) {
                                         <span className="">+32</span>
                                     </div>
                                 </div>
-                                <Field
-                                    type="tel"
-                                    name="phone"
-                                    placeholder="PHONE NUMBER"
-                                    className="text-black font-normal text-[18px] w-full outline-none bg-transparent 
-                                    border placeholder:text-center text-center border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] 
-                                    uppercase"
-                                />
-                               <button
-    type="submit"
-    className="h-[120px] w-[120px] bg-black text-white tracking-widest 
+                                <Field name="phone">
+                                {({ field, meta }) => (
+                                    <input
+                                        {...field}
+                                        type="tel"
+                                        placeholder="PHONE NUMBER"
+                                        className={`text-black font-normal text-[18px] w-full outline-none bg-transparent 
+                                            border placeholder:text-center text-center border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] 
+                                            uppercase ${
+                                                meta.touched && meta.error
+                                                    ? 'border-red-500'
+                                                    : ''
+                                            }`}
+                                    />
+                                )}
+                            </Field>
+                                <button
+                                    type="submit"
+                                    className="h-[120px] w-[120px] bg-black text-white tracking-widest 
     text-[14px] absolute rounded-lg flex items-center 
     justify-center uppercase"
-    style={{ bottom: 0, right: -200 }}
->
-    CONTINUE
-</button>
+                                    style={{ bottom: 0, right: -200 }}
+                                >
+                                    CONTINUE
+                                </button>
 
 
                             </div>
 
-                            <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
+
 
                             <Field
                                 type="text"
