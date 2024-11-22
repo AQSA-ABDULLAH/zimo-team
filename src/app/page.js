@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Application from "./application-form/ApplicationForm/Application";
+import Application from "../application-form/Application";
 import Header from "../components/Header";
 import Hero from "@/components/Hero";
 import IntroVideo from "@/components/IntroVideo";

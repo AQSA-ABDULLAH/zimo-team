@@ -105,7 +105,3 @@ export default function Form2({ onContinue }) {
     </section>
   );
 }
-
-
-
-  

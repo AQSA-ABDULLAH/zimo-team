@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Form1 from "./Form1";
-import Form2 from "./Form2";
-import Form3 from "./Form3";
+import Form3 from "../app/application-form/ApplicationForm/Form3";
 import Statement from "./Statment";
+import Form1 from "./PersonalInformation";
+import Form2 from "./AddressForm";
 
 export default function Application() {
     const [currentForm, setCurrentForm] = useState(1);
