@@ -17,28 +17,41 @@ export default function Application() {
 
     return (
         <section>
-            <header className="flex justify-between items-center w-[450] px-8 pt-8">
-                <div className="flex flex-col gap-2 flex-start"> {/* Keep APPLY section in a corner */}
+            <header className="flex justify-between items-center w-[450px] px-8 pt-8">
+                <div className="flex flex-col gap-2">
                     <h2 className="pr-8">APPLY</h2>
                     <button className="flex items-center gap-2 uppercase tracking-widest text-[20px] lg:text-[16px]">
                         <img src="/images/arrow.png" alt="keyback" className="w-[18px]" />
-                        <span>BACk</span>
+                        <span>BACK</span>
                     </button>
                 </div>
 
                 <section className="flex flex-col text-center items-center">
                     <h1 className="text-2xl">YOUR APPLICATION</h1>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginTop: "1.75rem" }}>
-                        <div style={{ backgroundColor: "yellow", height: "2px", width: "60px" }}></div>
-                        <div style={{ backgroundColor: "black", height: "2px", width: "60px" }}></div>
-                        <div style={{ backgroundColor: "black", height: "2px", width: "60px" }}></div>
+                    <div
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: "8px",
+                            marginTop: "1.75rem",
+                        }}
+                    >
+                        {[1, 2, 3].map((step) => (
+                            <div
+                                key={step}
+                                style={{
+                                    backgroundColor: currentForm === step ? "yellow" : "black",
+                                    height: "2px",
+                                    width: "60px",
+                                }}
+                            ></div>
+                        ))}
                     </div>
                 </section>
-                <div>
-                    .
-                </div>
-            </header>
 
+                <div>.</div>
+            </header>
 
             {/* Conditional rendering based on current form state */}
             {currentForm === 1 && <Form1 onContinue={handleContinue} />}
@@ -48,11 +61,19 @@ export default function Application() {
 
             <footer className="flex justify-between px-8 md:pt-20 pb-8 mt-4 pr-[55px] 2xl:pr-8">
                 <div className="flex-1">
-                    <img src="/images/app-team.png" alt="zimo-team-logo" className="w-[318px] 3xl:w-[300px]" /> {/* Self-closing */}
+                    <img
+                        src="/images/app-team.png"
+                        alt="zimo-team-logo"
+                        className="w-[318px] 3xl:w-[300px]"
+                    />
                 </div>
 
-                <div className="">
-                    <img src="/images/internship.png" alt="zimo-intern-logo" className="w-[147px] 3xl:w-[90px] ml-auto" /> {/* Self-closing */}
+                <div>
+                    <img
+                        src="/images/internship.png"
+                        alt="zimo-intern-logo"
+                        className="w-[147px] 3xl:w-[90px] ml-auto"
+                    />
                 </div>
             </footer>
         </section>
