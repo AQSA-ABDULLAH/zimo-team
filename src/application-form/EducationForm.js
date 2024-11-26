@@ -1,9 +1,18 @@
-import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import React, { useState, useEffect } from 'react';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 
 export default function Form3({ onContinue }) {
+    // State to track screen width
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1300);
+
+    // Update state on window resize
+    useEffect(() => {
+        const handleResize = () => setIsLargeScreen(window.innerWidth > 1300);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     const validationSchema = Yup.object({
         qualifications: Yup.string().required('Qualification is required'),
         completion: Yup.string().required('Year of completion is required'),
@@ -20,7 +29,7 @@ export default function Form3({ onContinue }) {
 
     return (
         <section>
-            <div className="flex items-center justify-center sm:py-16 z-10 mt-[20px] lg:mt-[10px]">
+            <div className="flex items-center justify-center z-10 mt-[20px] lg:mt-[10px]">
                 <Formik
                     initialValues={{
                         qualifications: '',
@@ -34,7 +43,13 @@ export default function Form3({ onContinue }) {
                     onSubmit={handleSubmit}
                 >
                     {({ setFieldValue, touched, errors }) => (
-                        <Form className="flex flex-col flex-1 items-center space-y-2 text-[18px] lg:text-[16px]">
+                        <Form className="flex flex-col flex-1 items-center space-y-2 text-[18px] lg:text-[16px]"
+                            style={
+                                isLargeScreen
+                                    ? {}
+                                    : { paddingBottom: "180px" }
+                            }
+                        >
                             <div className="w-[90%] max-w-[580px] flex flex-col items-center space-y-2 text-[22px] lg:text-[18px] tracking-[2px]">
                                 <h1>aqsaabdullah38403@gmail.com</h1>
                                 <div className="py-1"></div>
@@ -149,10 +164,19 @@ export default function Form3({ onContinue }) {
                             </div>
 
                             {/* Submit Button */}
-                            <div className="absolute" style={{ bottom: 50, right: 200 }}>
-                            <button
+                            <div
+                                className="absolute"
+                                style={
+                                    isLargeScreen
+                                        ? { display: 'flex', flexDirection: 'column', gap: '30px', bottom: '100px', right: '180px' }
+                                        : { display: 'flex', gap: '80px', bottom: '-80px', marginBottom: '70px' }
+                                }
+                            >
+
+                                <button
                                     type="button"
-                                    className="lg:flex h-[120px] mb-10 w-[120px] bg-black hidden text-white tracking-widest text-[14px] rounded-xl items-center text-center flex-col uppercase"
+                                    className="h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] 
+                                    rounded-xl items-center text-center flex-col uppercase"
                                     onClick={onContinue}
                                 >
                                     <span className="text-[10px] opacity-70 my-2">optional</span>
@@ -161,7 +185,9 @@ export default function Form3({ onContinue }) {
 
                                 <button
                                     type="submit"
-                                    className="lg:flex items-center justify-center hidden h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] rounded-lg text-center disabled:animate-pulse"
+                                    className="items-center justify-center h-[120px] w-[120px] 
+                                    bg-black text-white tracking-widest text-[14px] rounded-lg text-center 
+                                    disabled:animate-pulse"
                                 >
                                     SUBMIT
                                 </button>

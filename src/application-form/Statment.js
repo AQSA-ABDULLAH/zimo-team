@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Statement({ onCancel }) {
+  // State to track screen width
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1300);
+
+  // Update state on window resize
+  useEffect(() => {
+    const handleResize = () => setIsLargeScreen(window.innerWidth > 1300);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <>
-      <section className="flex flex-col items-center px-4 py-8">
+      <section className="flex flex-col items-center px-4 py-8"
+        style={
+          isLargeScreen
+            ? {}
+            : { paddingBottom: "180px" }
+        }>
         <h1 className="text-2xl font-bold text-gray-800">Supporting Information</h1>
         <div className="space-y-4 text-center py-8">
           <p className="text-lg lg:text-base font-medium text-gray-600 pb-2 tracking-wide">
@@ -28,12 +42,26 @@ export default function Statement({ onCancel }) {
           ></textarea>
 
 
-          <div className="absolute bottom-0 -right-44 block lg:hidden" style={{ bottom: 50, right: 200 }}>
-            <button className="lg:hidden h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] rounded-xl flex items-center text-center justify-center flex-col uppercase">
+          <div className="absolute block lg:hidden"
+            style={
+              isLargeScreen
+                ? { gap: '30px', bottom: '100px', right: '180px' }
+                : { display: 'flex', gap: '120px', bottom: '-80px', marginBottom: '50px' }
+            }
+          >
+            <button className="lg:hidden h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] 
+            rounded-xl flex items-center text-center justify-center flex-col uppercase"
+            style={
+              isLargeScreen
+                ? {}
+                : {marginTop: '12px' }
+            }
+            >
               ADD Supporting Statement
             </button>
             <button
-              className="lg:hidden h-[120px] w-[120px] bg-white text-black tracking-widest text-[14px] mt-4 rounded-xl flex items-center text-center justify-center border-black border border-opacity-60"
+              className="lg:hidden h-[120px] w-[120px] bg-white text-black tracking-widest text-[14px] mt-4 
+              rounded-xl flex items-center text-center justify-center border-black border border-opacity-60"
               onClick={onCancel} // Trigger onCancel function
             >
               CANCEL
