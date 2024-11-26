@@ -3,6 +3,7 @@ import Statement from "./Statment";
 import Form1 from "./PersonalInformation";
 import Form2 from "./AddressForm";
 import Form3 from "./EducationForm";
+import ApplicationForm from "../components/Application"
 
 export default function Application() {
     const [currentForm, setCurrentForm] = useState(1);
@@ -15,12 +16,24 @@ export default function Application() {
         setCurrentForm(3); // Go back to Form3
     };
 
+    const handleBack = () => {
+        setCurrentForm((prevForm) => {
+            if (prevForm === 1) {
+                return <ApplicationForm/>;
+            }
+            return prevForm - 1; // Navigate to the previous form
+        });
+    };
+
     return (
         <section>
             <header className="flex justify-between items-center w-[450px] px-8 pt-8">
                 <div className="flex flex-col gap-2">
                     <h2 className="pr-8">APPLY</h2>
-                    <button className="flex items-center gap-2 uppercase tracking-widest text-[20px] lg:text-[16px]">
+                    <button
+                        onClick={handleBack}
+                        className="flex items-center gap-2 uppercase tracking-widest text-[20px] lg:text-[16px]"
+                    >
                         <img src="/images/arrow.png" alt="keyback" className="w-[18px]" />
                         <span>BACK</span>
                     </button>
@@ -54,6 +67,7 @@ export default function Application() {
             </header>
 
             {/* Conditional rendering based on current form state */}
+            {currentForm === 0 && <div>ApplicationForm Component</div>}
             {currentForm === 1 && <Form1 onContinue={handleContinue} />}
             {currentForm === 2 && <Form2 onContinue={handleContinue} />}
             {currentForm === 3 && <Form3 onContinue={handleContinue} />}
@@ -79,3 +93,4 @@ export default function Application() {
         </section>
     );
 }
+
