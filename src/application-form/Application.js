@@ -3,9 +3,8 @@ import Statement from "./Statment";
 import Form1 from "./PersonalInformation";
 import Form2 from "./AddressForm";
 import Form3 from "./EducationForm";
-import ApplicationForm from "../components/Application"
 
-export default function Application() {
+export default function Application({ onBackToApplicationForm }) {
     const [currentForm, setCurrentForm] = useState(1);
 
     const handleContinue = () => {
@@ -19,7 +18,8 @@ export default function Application() {
     const handleBack = () => {
         setCurrentForm((prevForm) => {
             if (prevForm === 1) {
-                return <ApplicationForm/>;
+                onBackToApplicationForm(); // Trigger parent callback to show ApplicationForm
+                return prevForm;
             }
             return prevForm - 1; // Navigate to the previous form
         });
@@ -67,7 +67,6 @@ export default function Application() {
             </header>
 
             {/* Conditional rendering based on current form state */}
-            {currentForm === 0 && <div>ApplicationForm Component</div>}
             {currentForm === 1 && <Form1 onContinue={handleContinue} />}
             {currentForm === 2 && <Form2 onContinue={handleContinue} />}
             {currentForm === 3 && <Form3 onContinue={handleContinue} />}
@@ -93,4 +92,5 @@ export default function Application() {
         </section>
     );
 }
+
 

@@ -32,36 +32,37 @@ const roles = [
 export default function Home() {
   const [showApplication, setShowApplication] = useState(false);
 
-  // Function to show the Application section
   const handleApplyClick = () => {
-    setShowApplication(true);
+      setShowApplication(true);
+  };
+
+  const handleBackToApplicationForm = () => {
+      setShowApplication(false);
   };
 
   return (
-    <div>
-      {!showApplication ? (
-        <>
-          <Header />
-          <Hero />
-          <IntroVideo />
-          <DiscoverNew />
-          <ZimoAI />
-          <ZimoGroup />
-          <ZimoMeet />
-          <StudioVideo />
-          <ZimoDoc />
-          <ZimoCareer />
-          <ZimoInternship />
-          <DreamVideo />
-          <EqualOpportunity />
-          <ApplicationForm countries={countries} roles={roles} onApplyClick={handleApplyClick} />
-          <Footer />
-        </>
-      ) : (
-        <Application />
-      )}
-    </div>
+      <div>
+          {!showApplication ? (
+              <>
+                  <Header />
+                  <Hero />
+                  <IntroVideo />
+                  <DiscoverNew />
+                  <ZimoAI />
+                  <ZimoGroup />
+                  <ZimoMeet />
+                  <StudioVideo />
+                  <ZimoDoc />
+                  <ZimoCareer />
+                  <ZimoInternship />
+                  <DreamVideo />
+                  <EqualOpportunity />
+                  <ApplicationForm countries={countries} roles={roles} onApplyClick={handleApplyClick} />
+                  <Footer />
+              </>
+          ) : (
+              <Application onBackToApplicationForm={handleBackToApplicationForm} />
+          )}
+      </div>
   );
 }
-
-
