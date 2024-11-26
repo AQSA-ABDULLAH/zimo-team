@@ -94,7 +94,7 @@ export default function ApplicationForm({ countries, roles, onApplyClick }) {
                                         {/* Apply Button */}
                                         <button 
                                             type="submit"
-                                            className="h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] absolute bottom-[100px] right-[-60px] rounded-3xl flex items-center text-center justify-center"
+                                            className="h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] absolute bottom-[100px] lg:right-[-60px]  rounded-3xl flex items-center text-center justify-center"
                                         >
                                             APPLY
                                         </button>
