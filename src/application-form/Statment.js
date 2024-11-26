@@ -46,7 +46,7 @@ export default function Statement({ onCancel }) {
             style={
               isLargeScreen
                 ? { gap: '30px', bottom: '100px', right: '180px' }
-                : { display: 'flex', gap: '120px', bottom: '-80px', marginBottom: '50px' }
+                : { display: 'flex', gap:"355px", bottom: '-80px', marginBottom: '50px' }
             }
           >
             <button className="lg:hidden h-[120px] w-[120px] bg-black text-white tracking-widest text-[14px] 
@@ -54,7 +54,7 @@ export default function Statement({ onCancel }) {
             style={
               isLargeScreen
                 ? {}
-                : {marginTop: '12px' }
+                : {marginTop: '15px' }
             }
             >
               ADD Supporting Statement
@@ -62,7 +62,7 @@ export default function Statement({ onCancel }) {
             <button
               className="lg:hidden h-[120px] w-[120px] bg-white text-black tracking-widest text-[14px] mt-4 
               rounded-xl flex items-center text-center justify-center border-black border border-opacity-60"
-              onClick={onCancel} // Trigger onCancel function
+              onClick={onCancel} 
             >
               CANCEL
             </button>
