@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 
 export default function Form1({ onContinue }) {
+    // State to track screen width
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1000);
+
+    // Update state on window resize
+    useEffect(() => {
+        const handleResize = () => setIsLargeScreen(window.innerWidth > 1000);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     // Define validation schema
     const validationSchema = Yup.object({
         email: Yup.string()
@@ -51,6 +61,11 @@ export default function Form1({ onContinue }) {
                         <Form
                             autoComplete="off"
                             className="relative flex flex-col flex-1 items-center space-y-2 text-[18px] lg:text-[16px]"
+                            style={
+                                isLargeScreen
+                                    ? { }
+                                    : { paddingBottom: "150px"}
+                            }
                         >
                             <Field name="email">
                                 {({ field, meta }) => (
@@ -155,31 +170,20 @@ export default function Form1({ onContinue }) {
                                     </div>
                                 </div>
                                 <Field name="phone">
-                                {({ field, meta }) => (
-                                    <input
-                                        {...field}
-                                        type="tel"
-                                        placeholder="PHONE NUMBER"
-                                        className={`text-black font-normal text-[18px] w-full outline-none bg-transparent 
+                                    {({ field, meta }) => (
+                                        <input
+                                            {...field}
+                                            type="tel"
+                                            placeholder="PHONE NUMBER"
+                                            className={`text-black font-normal text-[18px] w-full outline-none bg-transparent 
                                             border placeholder:text-center text-center border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] 
-                                            uppercase ${
-                                                meta.touched && meta.error
+                                            uppercase ${meta.touched && meta.error
                                                     ? 'border-red-500'
                                                     : ''
-                                            }`}
-                                    />
-                                )}
-                            </Field>
-                                <button
-                                    type="submit"
-                                    className="h-[120px] w-[120px] bg-black text-white tracking-widest 
-                                        text-[14px] absolute rounded-lg flex items-center 
-                                        justify-center uppercase" style={{ bottom: 0, right: -200 }}
-                                >
-                                    CONTINUE
-                                </button>
-
-
+                                                }`}
+                                        />
+                                    )}
+                                </Field>
                             </div>
 
                             <Field
@@ -190,6 +194,20 @@ export default function Form1({ onContinue }) {
                                     placeholder:text-[18px] max-w-[580px] text-center bg-transparent border placeholder:text-center 
                                     border-gray-500/50 rounded-xl p-3 focus:border-[#BE9F56] focus:bg-transparent outline-none"
                             />
+
+                            <button
+                                type="submit"
+                                className="h-[120px] w-[120px] bg-black text-white tracking-widest 
+                                        text-[14px] absolute rounded-lg flex items-center 
+                                        justify-center uppercase"
+                                        style={
+                                            isLargeScreen
+                                                ? { position: 'absolute', bottom: '70px', right: '140px' }
+                                                : { position: 'absolute', bottom: '0px'}
+                                        }
+                            >
+                                CONTINUE
+                            </button>
 
                         </Form>
                     )}
